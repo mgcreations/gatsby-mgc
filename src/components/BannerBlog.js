@@ -1,4 +1,5 @@
 import * as React from "react";
+
 const BannerBlog = (props) => (
   <section id="banner" className="style2">
     <div className="inner">
