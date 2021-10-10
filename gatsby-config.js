@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
-    title: "MG Creations",
+    title: "MG Creations - Graphic & Website Design",
+    description:
+      "Freelance graphic and website designer based in Pietermaritzburg, KwaZulu- Natal, South Africa",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -25,6 +27,14 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolce: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: "./src/pages/blog",
+      },
+      __key: "blog",
     },
   ],
 };
