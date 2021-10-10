@@ -1,6 +1,7 @@
 import * as React from "react";
 import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import BannerBlog from "../../components/BannerBlog";
 
@@ -35,13 +36,16 @@ function BlogIndex({ data }) {
         <section id="two" className="spotlights">
           {data.allMdx.nodes.map((node) => (
             <section key={node.id}>
-              <ul className="actions">
-                <li>
-                  <Link to={`/blog/${node.slug}`} className="button">
-                    Read Post
-                  </Link>
-                </li>
-              </ul>
+              <span className="image">
+                <Link to={`/blog/${node.slug}`}>
+                  <GatsbyImage
+                    image={getImage(
+                      node.frontmatter.thumb_image.childImageSharp
+                    )}
+                    alt={node.frontmatter.thumb_image_alt}
+                  />
+                </Link>
+              </span>
 
               <div className="content">
                 <div className="inner">
@@ -68,6 +72,12 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "D MMMM YYYY")
           title
+          thumb_image_alt
+          thumb_image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
         id
         slug
