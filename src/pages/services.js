@@ -58,7 +58,7 @@ const Services = (props) => (
               </p>
               <ul className="actions">
                 <li>
-                  <Link to="/generic" className="button">
+                  <Link to="/eCommerce" className="button">
                     Learn more
                   </Link>
                 </li>
